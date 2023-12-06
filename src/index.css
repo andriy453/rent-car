@@ -1,8 +1,13 @@
 @import 'node_modules/modern-normalize/modern-normalize.css';
-
+:root {
+  --background: #fff;
+  --secondary: #121417;
+  --blue: #3470ff;
+  --blue-secondary:#0B44CD;
+  --secondary-transperent: rgba(18, 20, 23, 0.50);
+}
 body {
-  background-color: #000;
-  /* background-image: url('./assets/background.png'); */
+  background-color: var(--background);
   background-size: auto 100%;
   background-position: center center;
   background-repeat: no-repeat;

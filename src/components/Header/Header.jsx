@@ -1,21 +1,10 @@
-import {
-  HeaderContainer,
-  Navigation,
-  StyledLink,
-} from './Header.styled';
+import { Navigation, StyledLink } from './Header.styled';
 
 export const Header = () => {
-
   return (
-    <HeaderContainer>
-      <Navigation>
-        <StyledLink to="/first">
-          First
-        </StyledLink>
-        <StyledLink to="/second">
-          Second
-        </StyledLink>
-      </Navigation>
-    </HeaderContainer>
+    <Navigation>
+      <StyledLink to="/catalog">First</StyledLink>
+      <StyledLink to="/favorites">Second</StyledLink>
+    </Navigation>
   );
 };

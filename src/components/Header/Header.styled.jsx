@@ -1,10 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const HeaderContainer = styled.div`
-  padding: 20px;
-`;
-
 export const Navigation = styled.nav`
   display: flex;
   justify-content: center;
@@ -13,7 +9,7 @@ export const Navigation = styled.nav`
 
 export const StyledLink = styled(Link)`
   padding: 8px 16px;
-  color: #ffffff; /* White text color */
+  color: #ffffff;
   text-shadow:
     0 0 5px #00baff,
     0 0 10px #00baff,
@@ -26,7 +22,7 @@ export const StyledLink = styled(Link)`
 
   &:hover,
   &:focus {
-    color: #00baff; /* Blue text color on hover/focus */
+    color: #00baff;
     text-shadow:
       0 0 5px #00baff,
       0 0 10px #00baff,
@@ -37,9 +33,9 @@ export const StyledLink = styled(Link)`
 `;
 
 export const IconWrapper = styled.svg`
-  width: ${(props) => props.size || '12px'};
-  height: ${(props) => props.size || '12px'};
-  fill: ${(props) => props.color || '#ffffff'};
+  width: '12px';
+  height: '12px';
+  fill: '#ffffff';
   display: inline-block;
   margin-right: 5px;
   box-shadow:
