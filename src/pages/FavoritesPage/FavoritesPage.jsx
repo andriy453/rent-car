@@ -1,13 +1,11 @@
-import { Container, Block, Title } from './FavoritesPage.styled';
+import { Container } from './FavoritesPage.styled';
 
-const SecondPage = () => {
+const FavoritesPage = () => {
   return (
     <Container>
-      <Block>
-        <Title>Second Page</Title>
-      </Block>
+
     </Container>
   );
 };
 
-export default SecondPage;
+export default FavoritesPage;

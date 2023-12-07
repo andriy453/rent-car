@@ -1,6 +1,7 @@
+import {  useState,useEffect } from "react";
 import {
   CarItem,
-  CarPhoto,
+  CarIcon,
   CarTitle,
   CarModel,
   CarPrice,
@@ -8,7 +9,12 @@ import {
   LearnMoreBtn,
   CarInfo,
   PhotoConteiner,
+  SvgHeart,
+  SvgHeartActiv,
 } from './CardItem.styled';
+import sprite from '../../icons/sprite.svg'
+import { useDispatch } from 'react-redux';
+import { addFavorites,deleteFavorites } from '../../redux/cars/carsSlice';
 
 // {"id": 9582,
 // "year": 2008,
@@ -35,20 +41,49 @@ import {
 // "rentalConditions": "Minimum age: 25\nValid driver's license\nSecurity deposit required",
 // "mileage": 5858
 // }
+import {selectFavorites} from '../../redux/cars/selectors'
+import {  useSelector } from 'react-redux';
 
-function CardItem() {
+
+function CardItem({ car }) {
+  const dispatch = useDispatch();
+   const favoritesArr = useSelector(selectFavorites);
+  const { make, model, year, rentalPrice, img,id} = car
+  
+  const [favorite, setFavorite] = useState(false)
+
+  useEffect(()=>{
+    const isFavorite = favoritesArr.find(car => car.id===id);
+    if(isFavorite){
+        setFavorite(true)
+    }
+  }, [favoritesArr, id])
+  
+  const HandleFavoriteClick = () => {
+    setFavorite(!favorite)
+    if(favorite){
+        dispatch(deleteFavorites(car))
+    }else{
+        dispatch(addFavorites(car))
+    }
+
+  }
+  
   return (
+    
     <CarItem>
           <PhotoConteiner>
-        <CarPhoto
-        src="https://res.cloudinary.com/ditdqzoio/image/upload/v1687252635/cars/buick_enclave.jpg"
+        <CarIcon
+        src={img}
+        loading="lazy"
         alt=""
-      />
+              />
+           {!favorite ? <SvgHeart onClick={HandleFavoriteClick}><use href={sprite + '#icon-heart'}></use></SvgHeart> : <SvgHeartActiv onClick={HandleFavoriteClick}><use href={sprite + '#icon-heart-blue'}></use></SvgHeartActiv>}
     </PhotoConteiner>
       <div>
         <CarConteiner>
-          <CarTitle>Buick <CarModel>Enclave</CarModel>, 2008</CarTitle>
-          <div><CarPrice>40$</CarPrice></div>
+                  <CarTitle>{make} {model.length < 8 ? <CarModel>{model}</CarModel> : ''}, {year}</CarTitle>
+                  <div><CarPrice>{rentalPrice}</CarPrice></div>
         </CarConteiner>
         <CarInfo>Power liftgate | Power liftgate | Power liftgate | Power liftgate | Power liftgate | Power liftgate |</CarInfo>
         <LearnMoreBtn type="button">Learn more</LearnMoreBtn>

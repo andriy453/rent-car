@@ -6,21 +6,33 @@ export const CarItem = styled.li`
 
 
   export const PhotoConteiner = styled.div`
-    
+    position: relative;
   `
-  
-export const CarPhoto = styled.img`
+
+export const SvgHeart = styled.svg`
+    position: absolute;
+    top: 14px;
+    right: 14px;
+
+    width: 18px;
+    height: 18px;
+    `
+export const SvgHeartActiv = styled.svg`
+    position: absolute;
+    top: 14px;
+    right: 14px;
+
+    width: 18px;
+    height: 18px;
+
+`
+
+    
+
+export const CarIcon = styled.img`
   width: 274px;
   height: 268px;
   border-radius: 14px;
-  background:
-    linear-gradient(
-      180deg,
-      rgba(18, 20, 23, 0.5) 2.5%,
-      rgba(18, 20, 23, 0) 41.07%
-    ),
-    url(<path-to-image>),
-    lightgray 50% / cover no-repeat;
 
   margin-bottom: 14px;
 `;
@@ -38,6 +50,9 @@ export const CarModel = styled.span`
 
 export const CarPrice = styled.p`
   margin-right: auto;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
 `;
 export const CarConteiner = styled.div`
     display: flex;
@@ -71,5 +86,7 @@ export const CarInfo = styled.p`
     font-style: normal;
     font-weight: 400;
     line-height: 1.5;
+
+    margin-bottom:28px;
 `
 
