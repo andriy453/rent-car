@@ -90,3 +90,28 @@ export const CarInfo = styled.p`
     margin-bottom:28px;
 `
 
+export const ListInfo = styled.ul`
+    display: flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap: 4px 6px;
+    width: 274px;
+
+    margin-bottom:28px;
+`
+export const ItemInfo = styled.li`
+        color: var(--secondary-transperent);
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+`
+
+export const SvgVector = styled.svg`
+    display:inline-block;
+    width: 2px;
+    height: 16px;
+    stroke-width: 0;
+    stroke: var(--drop-down);
+`
+

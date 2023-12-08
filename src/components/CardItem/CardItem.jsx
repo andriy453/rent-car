@@ -1,4 +1,5 @@
-import {  useState,useEffect } from "react";
+import { useState, useEffect } from "react";
+import { useSelector ,useDispatch} from 'react-redux';
 import {
   CarItem,
   CarIcon,
@@ -11,10 +12,14 @@ import {
   PhotoConteiner,
   SvgHeart,
   SvgHeartActiv,
+  SvgVector,
+  ListInfo,
+  ItemInfo,
 } from './CardItem.styled';
 import sprite from '../../icons/sprite.svg'
-import { useDispatch } from 'react-redux';
-import { addFavorites,deleteFavorites } from '../../redux/cars/carsSlice';
+
+import { addFavorites, deleteFavorites } from '../../redux/cars/carsSlice';
+import Modal from "../Modal/Modal";
 
 // {"id": 9582,
 // "year": 2008,
@@ -42,14 +47,17 @@ import { addFavorites,deleteFavorites } from '../../redux/cars/carsSlice';
 // "mileage": 5858
 // }
 import {selectFavorites} from '../../redux/cars/selectors'
-import {  useSelector } from 'react-redux';
+
+
+
+
 
 
 function CardItem({ car }) {
   const dispatch = useDispatch();
    const favoritesArr = useSelector(selectFavorites);
-  const { make, model, year, rentalPrice, img,id} = car
-  
+  const { make, model, year, rentalPrice, img,id,address,rentalCompany,type,mileage,accessories} = car
+   const addres =  address.split(',').map(item=>item.trim())
   const [favorite, setFavorite] = useState(false)
 
   useEffect(()=>{
@@ -68,7 +76,11 @@ function CardItem({ car }) {
     }
 
   }
-  
+const [ shownModal , setShownModal] = useState(false);
+
+const onModal = () => {
+  setShownModal(!shownModal )
+};
   return (
     
     <CarItem>
@@ -76,7 +88,7 @@ function CardItem({ car }) {
         <CarIcon
         src={img}
         loading="lazy"
-        alt=""
+        alt="car Photo"
               />
            {!favorite ? <SvgHeart onClick={HandleFavoriteClick}><use href={sprite + '#icon-heart'}></use></SvgHeart> : <SvgHeartActiv onClick={HandleFavoriteClick}><use href={sprite + '#icon-heart-blue'}></use></SvgHeartActiv>}
     </PhotoConteiner>
@@ -85,8 +97,10 @@ function CardItem({ car }) {
                   <CarTitle>{make} {model.length < 8 ? <CarModel>{model}</CarModel> : ''}, {year}</CarTitle>
                   <div><CarPrice>{rentalPrice}</CarPrice></div>
         </CarConteiner>
-        <CarInfo>Power liftgate | Power liftgate | Power liftgate | Power liftgate | Power liftgate | Power liftgate |</CarInfo>
-        <LearnMoreBtn type="button">Learn more</LearnMoreBtn>
+        {/* <CarInfo>{addres[1]}  <SvgVector> <use href={sprite + '#icon-Vector'}></use></SvgVector> {addres[2]} | { rentalCompany&&rentalCompany} | {type} | {model || make}|{mileage.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}| {accessories[2].slice(0,20)} </CarInfo> */}
+        <ListInfo><ItemInfo>{addres[1]} </ItemInfo> <ItemInfo><SvgVector> <use href={sprite + '#icon-Vector'}></use></SvgVector> </ItemInfo> <ItemInfo>{addres[2]} </ItemInfo> <ItemInfo><SvgVector> <use href={sprite + '#icon-Vector'}></use></SvgVector> </ItemInfo> <ItemInfo>{ rentalCompany}  </ItemInfo> <SvgVector> <use href={sprite + '#icon-Vector'}></use></SvgVector><ItemInfo>Premium   </ItemInfo> <ItemInfo> {type} </ItemInfo> <SvgVector> <use href={sprite + '#icon-Vector'}></use></SvgVector>  <ItemInfo> {model }  </ItemInfo><SvgVector> <use href={sprite + '#icon-Vector'}></use></SvgVector><ItemInfo> {id}   </ItemInfo> <SvgVector> <use href={sprite + '#icon-Vector'}></use></SvgVector>  <ItemInfo> {accessories[0].slice(0,20)}</ItemInfo>  </ListInfo>
+        <LearnMoreBtn type="button" onClick={onModal}>Learn more</LearnMoreBtn>
+            {shownModal && <Modal onClose={onModal} arr={car} />}
       </div>
     </CarItem>
   );

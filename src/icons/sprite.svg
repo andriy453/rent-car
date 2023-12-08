@@ -13,5 +13,8 @@
 <symbol id="icon-chevron-down" viewBox="0 0 32 32">
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="3.2" d="M8 20l8-8 8 8"></path>
 </symbol>
+<symbol id="icon-Vector" viewBox="0 0 4 32">
+<path stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="2" d="M2 0v32"></path>
+</symbol>
 </defs>
 </svg>

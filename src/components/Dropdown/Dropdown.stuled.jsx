@@ -30,7 +30,7 @@ export const Dropdownlist = styled.ul`
   align-items: flex-start;
   gap:  8px 0px;
 
-  width: 224px;
+  width: 100%;
   height: 272px;
   padding: 14px 8px 14px 18px;
 
@@ -46,6 +46,8 @@ export const Dropdownlist = styled.ul`
   border: 1px solid rgba(18, 20, 23, 0.05);
   background: var(--background);
   box-shadow: 0px 4px 36px 0px rgba(0, 0, 0, 0.02);
+
+  height: ${(props) => props.$heigh && '188px'};
   `
 export const DropdownItem = styled.li`
   cursor: pointer;
@@ -64,7 +66,7 @@ export const DropdownItem = styled.li`
   stroke: currentColor;
   fill: transparent;
   transition: transform 300ms;
-  transform: ${(props) => props.active && 'rotate(180deg)'};
+  transform: ${(props) => props.$active && 'rotate(180deg)'};
 
   `
 

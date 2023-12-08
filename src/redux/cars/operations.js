@@ -14,3 +14,7 @@ export const fetchCar = createAsyncThunk('/', async (limit) => {
   const res = await axios.get(`/?page=1&limit=${limit}`)
   return res.data
 })
+export const fetchCarAll = createAsyncThunk('/all', async () => {
+  const res = await axios.get(`/`)
+  return res.data
+})
