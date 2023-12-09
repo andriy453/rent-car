@@ -2,11 +2,16 @@ import styled from 'styled-components';
 
 export const CarItem = styled.li`
   width: 274px;
+
   `;
 
 
   export const PhotoConteiner = styled.div`
     position: relative;
+    height: 288px;
+    overflow: hidden;
+    border-radius: 14px;
+    margin-bottom: 14px;
   `
 
 export const SvgHeart = styled.svg`
@@ -30,11 +35,13 @@ export const SvgHeartActiv = styled.svg`
     
 
 export const CarIcon = styled.img`
-  width: 274px;
-  height: 268px;
-  border-radius: 14px;
-
-  margin-bottom: 14px;
+    height: 100%;
+    transition: transform 300ms;
+    max-width: 100%;
+  &:hover{
+          transform:scale(1.1)
+  }
+  
 
 `;
 

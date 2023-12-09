@@ -28,6 +28,12 @@ export const LoadMoreBtn = styled.button`
   border: none;
 
   margin: 0 auto;
+
+  transition: color 300ms;
+
+  &:hover{
+    color:var(--blue-secondary)
+  }
 `
 
 

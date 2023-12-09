@@ -34,7 +34,8 @@ const [price, setPrice] = useState('')
   "Mercedes-Benz",
   "Chrysler",
   "Kia",
-    "Land"];
+  "Land",
+  "Ford","Honda"];
   
   let priceArr =[]
   for (let i = 10; i <= 200; i += 10) { 

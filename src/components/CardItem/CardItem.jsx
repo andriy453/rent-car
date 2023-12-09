@@ -19,38 +19,7 @@ import sprite from '../../icons/sprite.svg'
 
 import { addFavorites, deleteFavorites } from '../../redux/cars/carsSlice';
 import Modal from "../Modal/Modal";
-
-// {"id": 9582,
-// "year": 2008,
-// "make": "Buick",
-// "model": "Enclave",
-// "type": "SUV",
-// "CarPhoto": "https://res.cloudinary.com/ditdqzoio/image/upload/v1687252635/cars/buick_enclave.jpg",
-// "description": "The Buick Enclave is a stylish and spacious SUV known for its comfortable ride and luxurious features.",
-// "fuelConsumption": "10.5",
-// "engineSize": "3.6L V6",
-// "accessories": [
-// "Leather seats",
-// "Panoramic sunroof",
-// "Premium audio system"
-// ],
-// "functionalities": [
-// "Power liftgate",
-// "Remote start",
-// "Blind-spot monitoring"
-// ],
-// "rentalPrice": "$40",
-// "rentalCompany": "Luxury Car Rentals",
-// "address": "123 Example Street, Kiev, Ukraine",
-// "rentalConditions": "Minimum age: 25\nValid driver's license\nSecurity deposit required",
-// "mileage": 5858
-// }
 import {selectFavorites} from '../../redux/cars/selectors'
-
-
-
-
-
 
 function CardItem({ car }) {
   const dispatch = useDispatch();
@@ -85,7 +54,10 @@ const onModal = () => {
     <CarItem>
           <PhotoConteiner>
         <CarIcon
-        src={img || photoLink}
+          src={img || photoLink}
+            onError={e => {
+            e.target.src = 'https://www.ing.com/static/ingdotcompresentation/static/images/ING_lion_RGB_200x200.png';
+          }}
         loading="lazy"
         alt="car Photo"
               />
