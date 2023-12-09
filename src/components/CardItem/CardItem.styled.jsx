@@ -35,6 +35,7 @@ export const CarIcon = styled.img`
   border-radius: 14px;
 
   margin-bottom: 14px;
+
 `;
 
 export const CarTitle = styled.p`
@@ -43,6 +44,8 @@ export const CarTitle = styled.p`
   font-style: normal;
   font-weight: 500;
   line-height: 1.5;
+  font-size: ${(props) => props.$size && '18px'};
+  
 `;
 export const CarModel = styled.span`
   color: var(--blue);

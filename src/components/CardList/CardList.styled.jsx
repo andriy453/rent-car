@@ -9,6 +9,7 @@ export const CarList = styled.ul`
       @media (min-width: 768px) {
         gap: 50px 29px ;
       }
+      margin-top:50px;
     `;
 
 

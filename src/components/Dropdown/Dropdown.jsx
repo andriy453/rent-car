@@ -4,11 +4,11 @@ import { useState, } from 'react';
 import { Customdropdown, Dropdownheader, Dropdownlist, DropdownItem,SvgDown,DropdownText } from './Dropdown.stuled'
 import sprite from '../../icons/sprite.svg'
 
-function Dropdown({arr,value,set,height}) {
+function Dropdown({arr,value,set,height,selectedOption}) {
   // const [searchParams, setSearchParams] = useSearchParams();
   // const currentQuery = searchParams.get('price');
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState('');
+  // const [selectedOption, setSelectedOption] = useState('');
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -16,7 +16,6 @@ function Dropdown({arr,value,set,height}) {
 
   const handleOptionClick = (arr) => {
     set(arr)
-    setSelectedOption(arr);
     setIsOpen(false);
   };
 

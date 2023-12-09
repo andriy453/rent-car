@@ -12,12 +12,11 @@ export const Backdrop = styled.div`
     align-items: center;
     background-color: var(--secondary-transperent);
     z-index: 2;
-
+    overflow: auto;
 `
 
 
 export const ModalContent = styled.div`
-    height:800px;
     background-color:var( --background);
     width: 310px;
     padding: 40px 20px;
@@ -25,17 +24,29 @@ export const ModalContent = styled.div`
     position: absolute;
     top: 400px;
     left: 50%;
-    overflow: auto;
     transform: translate(-50%,-50%);
     border-radius: 24px;
+    overflow: auto;
+          @media (max-width: 768px) {
+    height:816px;
+          }
+      @media (min-width: 768px) {
+    width: 541px;
+    padding: 40px;
+      }
 `
   
 export const CarImg = styled.img`
     width: 270px;
     height: 260px;
     border-radius: 14px;
+        object-fit: cover;
 
     margin-bottom:14px;
+          @media (min-width: 768px) {
+            width: 461px;
+            height: 248px;
+          }
 `
 
 export const ModalDescription = styled.p`
@@ -57,6 +68,8 @@ export const ModalAccessories = styled.p`
     font-style: normal;
     font-weight: 400;
     line-height: 1.4; 
+
+    margin-bottom:8px;
 
 `
 export const ModalListInfo = styled.ul`
@@ -85,7 +98,7 @@ export const ModalRentalList = styled.ul`
     display: flex;
     flex-wrap:wrap;
     gap: 8px;
-    max-width: 340px;
+    max-width: 4000px;
     
     margin-bottom:24px;
 `

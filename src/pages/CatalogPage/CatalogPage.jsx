@@ -3,30 +3,26 @@ import { useState,useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { ThreeDots } from 'react-loader-spinner';
 
-import { Container,LoadMoreBtn } from './CatalogPage.styled';
+import { Container } from './CatalogPage.styled';
 import { fetchCar } from '../../redux/cars/operations'
 import CardList from '../../components/CardList/CardList';
-import { selectCar,selectStatus } from '../../redux/cars/selectors'
+import { selectStatus } from '../../redux/cars/selectors'
 import CardFilter from "../../components/CardFilter/CardFilter";
 const CatalogPage = () => {
   const [limit, setLimit] = useState(11);
-  const car = useSelector(selectCar)
   const status = useSelector(selectStatus)
 
   const dispatch = useDispatch();
     useEffect(() => {
     dispatch(fetchCar(12));
-    }, [dispatch]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
-  const hendleClick = () => {
 
-    dispatch(fetchCar(limit + 13));
-    setLimit( limit + 12);
-  }
   if (status === 'loading') {
   return (
     <Container>
-      <CardFilter/>
+      <CardFilter />
       <CardList />
             <ThreeDots
         height="80"
@@ -45,8 +41,9 @@ const CatalogPage = () => {
   return (
     <Container>
       <CardFilter/>
-      <CardList />
-      {car.length >  limit ? <LoadMoreBtn type="button" onClick={hendleClick}>Load more</LoadMoreBtn>  : <div></div> }
+      <CardList limit={limit} setLimit={setLimit} />
+
+      
     </Container>
   );
   }

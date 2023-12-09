@@ -4,6 +4,7 @@ import {fetchCar,fetchCarAll} from './operations'
 const initialState = {
   status: null,
   cars: [],
+  carsFilter: null,
   carsAll: [],
   favorites: [],
 }
@@ -29,6 +30,7 @@ export const carsSlice = createSlice({
       .addCase(fetchCarAll.fulfilled, (state, action) => {
         state.carsAll = action.payload
       })
+    
   },
   reducers: {
     addFavorites(state, action) {
@@ -46,11 +48,17 @@ export const carsSlice = createSlice({
         filterCars(state, action) {
      return {
         ...state,
-        cars:action.payload
+        carsFilter:action.payload
+     };
+        },
+     filterReset(state) {
+     return {
+        ...state,
+        carsFilter:null
      };
   }
   }
 })
-export const { addFavorites,deleteFavorites,filterCars} = carsSlice.actions;
+export const { addFavorites,deleteFavorites,filterCars,filterReset} = carsSlice.actions;
 
 export const carsReducer = carsSlice.reducer

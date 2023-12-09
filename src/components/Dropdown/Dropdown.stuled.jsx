@@ -11,8 +11,8 @@ export const Dropdownheader = styled.div`
   align-items: center;
   gap: 0px 50px;
   padding: 14px 18px 14px 18px;
+  background-color:var(--gray);
   cursor: pointer;
-  border: 1px solid #ccc;
   border-radius: 14px;
 `
 export const DropdownText = styled.p`

@@ -8,7 +8,6 @@ import {
   CarPrice,
   CarConteiner,
   LearnMoreBtn,
-  CarInfo,
   PhotoConteiner,
   SvgHeart,
   SvgHeartActiv,
@@ -56,7 +55,7 @@ import {selectFavorites} from '../../redux/cars/selectors'
 function CardItem({ car }) {
   const dispatch = useDispatch();
    const favoritesArr = useSelector(selectFavorites);
-  const { make, model, year, rentalPrice, img,id,address,rentalCompany,type,mileage,accessories} = car
+  const { make, model, year, rentalPrice, img,id,address,rentalCompany,type,photoLink} = car
    const addres =  address.split(',').map(item=>item.trim())
   const [favorite, setFavorite] = useState(false)
 
@@ -86,7 +85,7 @@ const onModal = () => {
     <CarItem>
           <PhotoConteiner>
         <CarIcon
-        src={img}
+        src={img || photoLink}
         loading="lazy"
         alt="car Photo"
               />
@@ -97,8 +96,7 @@ const onModal = () => {
                   <CarTitle>{make} {model.length < 8 ? <CarModel>{model}</CarModel> : ''}, {year}</CarTitle>
                   <div><CarPrice>{rentalPrice}</CarPrice></div>
         </CarConteiner>
-        {/* <CarInfo>{addres[1]}  <SvgVector> <use href={sprite + '#icon-Vector'}></use></SvgVector> {addres[2]} | { rentalCompany&&rentalCompany} | {type} | {model || make}|{mileage.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}| {accessories[2].slice(0,20)} </CarInfo> */}
-        <ListInfo><ItemInfo>{addres[1]} </ItemInfo> <ItemInfo><SvgVector> <use href={sprite + '#icon-Vector'}></use></SvgVector> </ItemInfo> <ItemInfo>{addres[2]} </ItemInfo> <ItemInfo><SvgVector> <use href={sprite + '#icon-Vector'}></use></SvgVector> </ItemInfo> <ItemInfo>{ rentalCompany}  </ItemInfo> <SvgVector> <use href={sprite + '#icon-Vector'}></use></SvgVector><ItemInfo>Premium   </ItemInfo> <ItemInfo> {type} </ItemInfo> <SvgVector> <use href={sprite + '#icon-Vector'}></use></SvgVector>  <ItemInfo> {model }  </ItemInfo><SvgVector> <use href={sprite + '#icon-Vector'}></use></SvgVector><ItemInfo> {id}   </ItemInfo> <SvgVector> <use href={sprite + '#icon-Vector'}></use></SvgVector>  <ItemInfo> {accessories[0].slice(0,20)}</ItemInfo>  </ListInfo>
+        <ListInfo><ItemInfo>{addres[1]} </ItemInfo> <ItemInfo><SvgVector> <use href={sprite + '#icon-Vector'}></use></SvgVector> </ItemInfo> <ItemInfo>{addres[2]} </ItemInfo> <ItemInfo><SvgVector> <use href={sprite + '#icon-Vector'}></use></SvgVector> </ItemInfo> <ItemInfo>{ rentalCompany}  </ItemInfo> <SvgVector> <use href={sprite + '#icon-Vector'}></use></SvgVector><ItemInfo> {type === model ? 'Premium': type} </ItemInfo> <SvgVector> <use href={sprite + '#icon-Vector'}></use></SvgVector>  <ItemInfo> {make }  </ItemInfo><SvgVector> <use href={sprite + '#icon-Vector'}></use></SvgVector><ItemInfo> {id}   </ItemInfo>  </ListInfo>
         <LearnMoreBtn type="button" onClick={onModal}>Learn more</LearnMoreBtn>
             {shownModal && <Modal onClose={onModal} arr={car} />}
       </div>

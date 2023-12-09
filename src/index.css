@@ -7,6 +7,8 @@
   --secondary-transperent: rgba(18, 20, 23, 0.50);
   --drop-down: rgba(18, 20, 23, 0.20);
   --modal:#363535;
+  --gray : #F7F7FB;
+  --gray-secondary:#8A8A89;
 }
 @font-face {
   font-display: swap;
