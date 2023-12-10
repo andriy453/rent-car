@@ -3,32 +3,30 @@ import styled from 'styled-components';
 export const Customdropdown = styled.div`
   position: relative;
   display: inline-block;
-`
-
+`;
 
 export const Dropdownheader = styled.div`
   display: flex;
   align-items: center;
   gap: 0px 50px;
   padding: 14px 18px 14px 18px;
-  background-color:var(--gray);
+  background-color: var(--gray);
   cursor: pointer;
   border-radius: 14px;
-`
+`;
 export const DropdownText = styled.p`
   color: var(--secondary);
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
-  line-height: 1.1; 
-`
-
+  line-height: 1.1;
+`;
 
 export const Dropdownlist = styled.ul`
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   align-items: flex-start;
-  gap:  8px 0px;
+  gap: 8px 0px;
 
   width: 100%;
   height: 272px;
@@ -48,18 +46,18 @@ export const Dropdownlist = styled.ul`
   box-shadow: 0px 4px 36px 0px rgba(0, 0, 0, 0.02);
 
   height: ${(props) => props.$heigh && '188px'};
-  `
+`;
 export const DropdownItem = styled.li`
   cursor: pointer;
-  color:var(--drop-down);
+  color: var(--drop-down);
   transition: color 300ms;
 
   width: 100%;
-  &:hover{
-    color:var(--secondary)
+  &:hover {
+    color: var(--secondary);
   }
-`
-  export const SvgDown = styled.svg`
+`;
+export const SvgDown = styled.svg`
   width: 20px;
   height: 20px;
   stroke-width: 0;
@@ -67,6 +65,4 @@ export const DropdownItem = styled.li`
   fill: transparent;
   transition: transform 300ms;
   transform: ${(props) => props.$active && 'rotate(180deg)'};
-
-  `
-
+`;

@@ -1,74 +1,168 @@
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Dropdown from '../Dropdown/Dropdown';
-import { SearchBtn,ListFilter } from './CardFilter.style'
-import { fetchCarAll} from '../../redux/cars/operations'
+import {
+  SearchBtn,
+  ListFilter,
+  SelectDiv,
+  ConteinerInput,
+  InputLeft,
+  InputRight,
+  InputText,
+} from './CardFilter.style';
+import { fetchCarAll } from '../../redux/cars/operations';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectCarsAll } from '../../redux/cars/selectors'
-import { filterCars } from '../../redux/cars/carsSlice'
-import {filterReset } from '../../redux/cars/carsSlice'
+import { filterCars, carsFilterFavorite } from '../../redux/cars/carsSlice';
+import { selectCarsAll } from '../../redux/cars/selectors';
+import { filterReset, filterResetFavorites } from '../../redux/cars/carsSlice';
 
-function CardFilter() {
-const [model, setModel] = useState('')
-const [price, setPrice] = useState('')
-    const dispatch = useDispatch();
-    const Allcar = useSelector(selectCarsAll);
+function CardFilter({ filterArr }) {
+  const [model, setModel] = useState('');
+  const [price, setPrice] = useState('');
+  const [minMileage, setMinMileage] = useState('');
+  const [maxMileage, setMaxMileage] = useState('');
+  const carAll = useSelector(selectCarsAll);
+  const dispatch = useDispatch();
   const options = [
-  "Buick",
-  "Volvo",
-  "HUMMER",
-  "Subaru",
-  "Mitsubishi",
-  "Nissan",
-  "Lincoln",
-  "GMC",
-  "Hyundai",
-  "MINI",
-  "Bentley",
-  "Mercedes-Benz",
-  "Aston Martin",
-  "Pontiac",
-  "Lamborghini",
-  "Audi",
-  "BMW",
-  "Chevrolet",
-  "Mercedes-Benz",
-  "Chrysler",
-  "Kia",
-  "Land",
-  "Ford","Honda"];
-  
-  let priceArr =[]
-  for (let i = 10; i <= 200; i += 10) { 
-    priceArr.push(i)
+    'Buick',
+    'Volvo',
+    'HUMMER',
+    'Subaru',
+    'Mitsubishi',
+    'Nissan',
+    'Lincoln',
+    'GMC',
+    'Hyundai',
+    'MINI',
+    'Bentley',
+    'Mercedes-Benz',
+    'Aston Martin',
+    'Pontiac',
+    'Lamborghini',
+    'Audi',
+    'BMW',
+    'Chevrolet',
+    'Mercedes-Benz',
+    'Chrysler',
+    'Kia',
+    'Land',
+    'Ford',
+    'Honda',
+  ];
+
+  let priceArr = [];
+  for (let i = 10; i <= 200; i += 10) {
+    priceArr.push(i);
   }
 
-    const hendleSearch = () => {
-            console.log(model, price)
-        // dispatch(filterCars(Allcar.filter((el) => +el.rentalPrice.slice(1) <= price)))
-        if(model && price) dispatch(filterCars(Allcar.filter((el) => el.make === model ).filter((el) => +el.rentalPrice.slice(1) <= price)))
-         else if  (model) dispatch(filterCars(Allcar.filter((el) => el.make === model)))
-         else if(price )dispatch(filterCars(Allcar.filter((el) => +el.rentalPrice.slice(1) <= price)))
+  const hendleSearch = () => {
+    if (carAll === filterArr) {
+      if (model)
+        dispatch(filterCars(filterArr.filter((el) => el.make === model)));
+      else if (price)
+        dispatch(
+          filterCars(
+            filterArr.filter((el) => +el.rentalPrice.slice(1) <= price)
+          )
+        );
+      else if (minMileage)
+        dispatch(filterCars(filterArr.filter((el) => el.mileage > minMileage)));
+      else if (maxMileage)
+        dispatch(filterCars(filterArr.filter((el) => el.mileage < maxMileage)));
+    } else {
+      if (model)
+        dispatch(
+          carsFilterFavorite(filterArr.filter((el) => el.make === model))
+        );
+      else if (price)
+        dispatch(
+          carsFilterFavorite(
+            filterArr.filter((el) => +el.rentalPrice.slice(1) <= price)
+          )
+        );
+      else if (minMileage)
+        dispatch(
+          carsFilterFavorite(filterArr.filter((el) => el.mileage > minMileage))
+        );
+      else if (maxMileage)
+        dispatch(
+          carsFilterFavorite(filterArr.filter((el) => el.mileage < maxMileage))
+        );
     }
-    useEffect(() => {
-        dispatch(fetchCarAll())
+  };
+  useEffect(() => {
+    if (carAll.length === 0) dispatch(fetchCarAll());
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+  }, [dispatch]);
   const hendleReset = () => {
-    dispatch(filterReset())
-    setModel('')
-    setPrice('')
-  }
+    if (carAll === filterArr) {
+      dispatch(filterReset());
+    } else {
+      dispatch(filterResetFavorites());
+    }
+    setModel('');
+    setPrice('');
+    setMinMileage('');
+    setMaxMileage('');
+  };
   return (
     <>
-        <ListFilter>
-        <li><span>Car brand</span><Dropdown arr={options} value='Enter the text' set={setModel} selectedOption={model } /></li>
-        <li><span>Price/ 1 hour</span><Dropdown arr={priceArr} value='To $' set={setPrice} height={true} selectedOption={price } /></li>
-        <SearchBtn type='button' onClick={hendleSearch}>Search</SearchBtn>
-        <SearchBtn type='button' onClick={hendleReset}>Reset the filter</SearchBtn>
-    </ListFilter>
-
+      <ListFilter>
+        <li>
+          <span>Car brand</span>
+          <Dropdown
+            arr={options}
+            value="Enter the text"
+            set={setModel}
+            selectedOption={model}
+          />
+        </li>
+        <li>
+          <span>Price/ 1 hour</span>
+          <Dropdown
+            arr={priceArr}
+            value="To $"
+            set={setPrice}
+            height={true}
+            selectedOption={price}
+          />
+        </li>
+        <li>
+          {' '}
+          <SelectDiv>
+            <span>Сar mileage / km</span>
+            <div>
+              <ConteinerInput>
+                <InputText>From</InputText>
+                <InputLeft
+                  type="number"
+                  value={minMileage}
+                  onChange={(e) => {
+                    setMinMileage(e.target.value);
+                  }}
+                />
+              </ConteinerInput>
+              <ConteinerInput>
+                <InputText>To</InputText>
+                <InputRight
+                  type="number"
+                  value={maxMileage}
+                  onChange={(e) => {
+                    setMaxMileage(e.target.value);
+                  }}
+                />
+              </ConteinerInput>
+            </div>
+          </SelectDiv>
+        </li>
+        <SearchBtn type="button" onClick={hendleSearch}>
+          Search
+        </SearchBtn>
+        <SearchBtn type="button" onClick={hendleReset}>
+          Reset the filter
+        </SearchBtn>
+      </ListFilter>
     </>
-  )
+  );
 }
 
-export default CardFilter
+export default CardFilter;

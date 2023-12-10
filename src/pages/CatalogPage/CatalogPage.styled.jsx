@@ -4,21 +4,24 @@ export const Container = styled.div`
   width: 100%;
   max-width: 320px;
   padding: 0 20px;
+  padding-bottom: 50px;
   margin: 0 auto;
 
   @media (min-width: 768px) {
     max-width: 768px;
     padding: 0 32px;
+    padding-bottom: 50px;
   }
 
   @media (min-width: 1280px) {
     max-width: 1280px;
     padding: 0 16px;
+    padding-bottom: 50px;
   }
 `;
 export const LoadMoreBtn = styled.button`
-  color:var(--blue);
-  background-color:transparent;
+  color: var(--blue);
+  background-color: transparent;
   font-size: 16px;
   font-style: normal;
   font-weight: 500;
@@ -31,9 +34,7 @@ export const LoadMoreBtn = styled.button`
 
   transition: color 300ms;
 
-  &:hover{
-    color:var(--blue-secondary)
+  &:hover {
+    color: var(--blue-secondary);
   }
-`
-
-
+`;

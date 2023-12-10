@@ -1,10 +1,17 @@
-import { useState, } from 'react';
+import { useState } from 'react';
 // import { useSearchParams } from "react-router-dom";
 
-import { Customdropdown, Dropdownheader, Dropdownlist, DropdownItem,SvgDown,DropdownText } from './Dropdown.stuled'
-import sprite from '../../icons/sprite.svg'
+import {
+  Customdropdown,
+  Dropdownheader,
+  Dropdownlist,
+  DropdownItem,
+  SvgDown,
+  DropdownText,
+} from './Dropdown.stuled';
+import sprite from '../../icons/sprite.svg';
 
-function Dropdown({arr,value,set,height,selectedOption}) {
+function Dropdown({ arr, value, set, height, selectedOption }) {
   // const [searchParams, setSearchParams] = useSearchParams();
   // const currentQuery = searchParams.get('price');
   const [isOpen, setIsOpen] = useState(false);
@@ -15,18 +22,16 @@ function Dropdown({arr,value,set,height,selectedOption}) {
   };
 
   const handleOptionClick = (arr) => {
-    set(arr)
+    set(arr);
     setIsOpen(false);
   };
 
-    
   return (
-      <Customdropdown>
+    <Customdropdown>
       <Dropdownheader onClick={toggleDropdown}>
-        <DropdownText>{selectedOption || value }</DropdownText>
-        <SvgDown  $active={isOpen ? true : undefined}>
-          <use href={sprite  + '#icon-chevron-down'}>
-          </use>
+        <DropdownText>{selectedOption || value}</DropdownText>
+        <SvgDown $active={isOpen ? true : undefined}>
+          <use href={sprite + '#icon-chevron-down'}></use>
         </SvgDown>
       </Dropdownheader>
       {isOpen && (
@@ -39,7 +44,7 @@ function Dropdown({arr,value,set,height,selectedOption}) {
         </Dropdownlist>
       )}
     </Customdropdown>
-  )
+  );
 }
 
-export default Dropdown
+export default Dropdown;

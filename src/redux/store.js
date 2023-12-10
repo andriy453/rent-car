@@ -10,7 +10,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import storage from 'redux-persist/lib/storage'; 
+import storage from 'redux-persist/lib/storage';
 
 const favoritesPersistConfig = {
   key: 'favorites',
@@ -18,18 +18,14 @@ const favoritesPersistConfig = {
   whitelist: ['favorites'],
 };
 
-
 const persistedReducer = persistReducer(favoritesPersistConfig, carsReducer);
-
 
 export const store = configureStore({
   reducer: {
     cars: persistedReducer,
-    // cars: carsReducer,
   },
-  
 
-  middleware: getDefaultMiddleware =>
+  middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
@@ -37,4 +33,4 @@ export const store = configureStore({
     }),
 });
 
-export const persistor = persistStore(store); 
+export const persistor = persistStore(store);
