@@ -1,4 +1,4 @@
-import { useState, useEffect,useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import {
   Customdropdown,
@@ -23,8 +23,8 @@ function Dropdown({ arr, value, set, height, selectedOption }) {
   };
 
   const dropdownRef = useRef(null);
-  
-    useEffect(() => {
+
+  useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsOpen(false);
@@ -37,7 +37,6 @@ function Dropdown({ arr, value, set, height, selectedOption }) {
     };
   }, [dropdownRef]);
 
-
   return (
     <Customdropdown>
       <Dropdownheader onClick={toggleDropdown} ref={dropdownRef}>
@@ -47,7 +46,7 @@ function Dropdown({ arr, value, set, height, selectedOption }) {
         </SvgDown>
       </Dropdownheader>
       {isOpen && (
-        <Dropdownlist $heigh={height ? height : undefined} >
+        <Dropdownlist $heigh={height ? height : undefined}>
           {arr.map((arr, index) => (
             <DropdownItem key={index} onClick={() => handleOptionClick(arr)}>
               {arr}

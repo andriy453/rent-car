@@ -26,30 +26,30 @@ const CatalogPage = () => {
   if (status === 'loading') {
     return (
       <section>
-              <Container>
-        <CardFilter filterArr={carArr} />
-        <CardList />
-        <ThreeDots
-          height="80"
-          width="80"
-          radius="9"
-          color="#000000"
-          ariaLabel="three-dots-loading"
-          wrapperStyle={{ justifyContent: 'center' }}
-          visible={true}
-        />
-      </Container>
-  </section>
+        <Container>
+          <CardFilter filterArr={carArr} />
+          <CardList />
+          <ThreeDots
+            height="80"
+            width="80"
+            radius="9"
+            color="#000000"
+            ariaLabel="three-dots-loading"
+            wrapperStyle={{ justifyContent: 'center' }}
+            visible={true}
+          />
+        </Container>
+      </section>
     );
   }
 
   if (status === 'succeeded') {
     return (
       <section>
-          <Container>
-        <CardFilter filterArr={carArr} />
-        <CardList/>
-      </Container>
+        <Container>
+          <CardFilter filterArr={carArr} />
+          <CardList />
+        </Container>
       </section>
     );
   }

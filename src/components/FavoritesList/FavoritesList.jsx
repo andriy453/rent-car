@@ -5,7 +5,7 @@ import {
   carsFilterFavorite,
 } from '../../redux/cars/selectors';
 import CardItem from '../CardItem/CardItem';
-import { FavoritList } from './FavoritesList.stuled';
+import { FavoritList, Text } from './FavoritesList.stuled';
 import CardFilter from '../CardFilter/CardFilter';
 
 function FavoritesList() {
@@ -30,11 +30,11 @@ function FavoritesList() {
       ) : (
         <>
           {favoritesArr.length === 0 ? (
-            <p>
+            <Text>
               It appears that you haven't added any car to your favorites yet.
               To get started, you can add car that you like to your favorites
               for easier access in the future.
-            </p>
+            </Text>
           ) : (
             <>
               <CardFilter filterArr={favoritesArr} />

@@ -8,7 +8,7 @@ const initialState = {
   carsFilterFavorite: null,
   carsAll: [],
   favorites: [],
-  limit:11,
+  limit: 11,
 };
 
 export const carsSlice = createSlice({
@@ -71,7 +71,7 @@ export const carsSlice = createSlice({
         carsFilterFavorite: null,
       };
     },
-      setLimit(state) {
+    setLimit(state) {
       return {
         ...state,
         limit: state.limit + 12,

@@ -1,11 +1,14 @@
 # rent-car Project
 
-This repository contains the source code and assets for the Rent-A-Car web application. 
+This repository contains the source code and assets for the Rent-A-Car web
+application.
 
 ## Features
 
-- **Home Page:** General information about the rental service and a call-to-action to view the car catalog.
-- **Catalog Page:** Display a catalog of available cars for rent, with filtering options.
+- **Home Page:** General information about the rental service and a
+  call-to-action to view the car catalog.
+- **Catalog Page:** Display a catalog of available cars for rent, with filtering
+  options.
 - **Favorites Page:** Displays a list of user's favorite car listings.
 
 ## Getting Started

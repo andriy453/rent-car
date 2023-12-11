@@ -77,14 +77,12 @@ function Modal({ onClose, arr }) {
           <ItemInfo>{addres[1]} </ItemInfo>
           <ItemInfo>
             <SvgVector>
-
               <use href={sprite + '#icon-Vector'}></use>
             </SvgVector>
           </ItemInfo>
           <ItemInfo>{addres[2]} </ItemInfo>
           <ItemInfo>
             <SvgVector>
-
               <use href={sprite + '#icon-Vector'}></use>
             </SvgVector>
           </ItemInfo>
@@ -112,14 +110,12 @@ function Modal({ onClose, arr }) {
           <ItemInfo>{accessories[0].slice(0, 13)} </ItemInfo>
           <ItemInfo>
             <SvgVector>
-
               <use href={sprite + '#icon-Vector'}></use>
             </SvgVector>
           </ItemInfo>
           <ItemInfo>{accessories[1].slice(0, 13)} </ItemInfo>
           <ItemInfo>
             <SvgVector>
-
               <use href={sprite + '#icon-Vector'}></use>
             </SvgVector>
           </ItemInfo>

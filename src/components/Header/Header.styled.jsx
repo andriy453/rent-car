@@ -14,9 +14,9 @@ export const StyledLink = styled(Link)`
   line-height: 1.5;
   padding: 30px 20px;
   color: var(--secondary);
-  transition:color 300ms;
-  &:hover{
-    color:var(--blue-secondary)
+  transition: color 300ms;
+  &:hover {
+    color: var(--blue-secondary);
   }
 `;
 export const StyledLinkicon = styled(Link)`
@@ -24,16 +24,15 @@ export const StyledLinkicon = styled(Link)`
   @media (min-width: 768px) {
     display: block;
   }
-
-`
+`;
 
 export const ConteinerNavigate = styled.div`
-    display:flex;
-    justify-content:center;
-    position: relative;
-    z-index: 1;
-      @media (min-width: 768px) {
-        justify-content:space-between;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  @media (min-width: 768px) {
+    justify-content: space-between;
   }
   width: 100%;
   max-width: 320px;
@@ -49,5 +48,4 @@ export const ConteinerNavigate = styled.div`
     max-width: 1280px;
     padding: 0 16px;
   }
-`
-
+`;

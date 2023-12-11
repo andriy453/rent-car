@@ -53,9 +53,11 @@ function CardFilter({ filterArr }) {
   for (let i = 10; i <= 200; i += 10) {
     priceArr.push(i);
   }
-const filteredCars = filterArr.filter((car) => {
-    const brandMatch = model ? car.make.toLowerCase() === model.toLowerCase() : true;
-    const hourlyPriceMatch = price ?  +car.rentalPrice.slice(1) <= price : true;
+  const filteredCars = filterArr.filter((car) => {
+    const brandMatch = model
+      ? car.make.toLowerCase() === model.toLowerCase()
+      : true;
+    const hourlyPriceMatch = price ? +car.rentalPrice.slice(1) <= price : true;
     const mileageMatchMin = minMileage ? car.mileage > minMileage : true;
     const mileageMatchMax = maxMileage ? car.mileage < maxMileage : true;
 
@@ -63,14 +65,12 @@ const filteredCars = filterArr.filter((car) => {
   });
   const hendleSearch = () => {
     if (model + price + minMileage + maxMileage) {
-         if (carAll === filterArr) {
-       dispatch(filterCars(filteredCars));
+      if (carAll === filterArr) {
+        dispatch(filterCars(filteredCars));
+      } else {
+        dispatch(carsFilterFavorite(filteredCars));
+      }
     }
-    else {
-       dispatch(carsFilterFavorite(filteredCars));
-    }
-
- }
   };
 
   useEffect(() => {
@@ -88,8 +88,6 @@ const filteredCars = filterArr.filter((car) => {
     setMinMileage('');
     setMaxMileage('');
   };
-
-
 
   return (
     <>

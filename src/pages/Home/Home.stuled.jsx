@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export const ContacBbutton = styled.a`
   display: inline-block;
   padding: 15px 30px;
-  background-color:var(--blue);
+  background-color: var(--blue);
   color: var(--background);
   text-decoration: none;
   border-radius: 5px;
@@ -20,7 +20,7 @@ export const ContacBbutton = styled.a`
 export const StyledLink = styled(Link)`
   display: inline-block;
   padding: 15px 30px;
-  background-color:var(--blue);
+  background-color: var(--blue);
   color: var(--background);
   text-decoration: none;
   border-radius: 5px;
@@ -32,7 +32,7 @@ export const StyledLink = styled(Link)`
   &:hover {
     background-color: var(--blue-secondary);
   }
-`
+`;
 
 export const HomeConteiner = styled.div`
   width: 100%;
@@ -55,71 +55,67 @@ export const HomeConteiner = styled.div`
     padding-bottom: 50px;
     height: 750px;
   }
-
-`
+`;
 
 export const ConteinerContent = styled.div`
-
-    span{
+  span {
     color: var(--blue);
+  }
+  h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 32px;
+    @media (min-width: 768px) {
+      font-size: 52px;
     }
-    h1{
-    font-size:32px;
-    font-weight:700;
-    margin-bottom:32px;
-          @media (min-width: 768px) {
-              font-size:52px;
-          }
-    }
-    p{
-    color:var(--modal);
+  }
+  p {
+    color: var(--modal);
     line-height: 1.6;
-    margin-bottom:32px;
-        margin-bottom:32px;
-    }
-      @media (min-width: 1280px) {
-        max-width: 450px;
-      }
-`
+    margin-bottom: 32px;
+    margin-bottom: 32px;
+  }
+  @media (min-width: 1280px) {
+    max-width: 450px;
+  }
+`;
 export const Text = styled.p`
-    font-size:18px;
-    font-weight:700;
-    margin-bottom:16px;
-     @media (min-width: 768px) {
-    font-size:32px;
-    }
-`
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  @media (min-width: 768px) {
+    font-size: 32px;
+  }
+`;
 
 export const ConteinerImg = styled.div`
-    display: none;
+  display: none;
   @media (min-width: 1280px) {
     display: block;
   }
-`
+`;
 export const ConteinerBtn = styled.div`
-    display: flex;
-    flex-direction:column;
-    gap: 20px 0px;
-      @media (min-width: 768px) {
-        flex-direction: row;
-            gap: 0px 20px ;
-            justify-content: center;
-      }
-        @media (min-width: 1280px) {
-        justify-content:flex-start
-        }
-
-`
+  display: flex;
+  flex-direction: column;
+  gap: 20px 0px;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    gap: 0px 20px;
+    justify-content: center;
+  }
+  @media (min-width: 1280px) {
+    justify-content: flex-start;
+  }
+`;
 export const ImgPhone = styled.img`
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    filter: grayscale(100%);
-`
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  filter: grayscale(100%);
+`;
 export const ImgCar = styled.img`
-    position: absolute;
-    top: 200px;
-    right: 100px;
-    z-index: 3;
-`
-
+  position: absolute;
+  top: 200px;
+  right: 100px;
+  z-index: 3;
+`;

@@ -15,7 +15,6 @@ import {
   ListInfo,
   ItemInfo,
 } from './CardItem.styled';
-// import imgcar from '../../icons/car_404.png'
 import sprite from '../../icons/sprite.svg';
 
 import { addFavorites, deleteFavorites } from '../../redux/cars/carsSlice';
@@ -85,8 +84,7 @@ function CardItem({ car }) {
       <div>
         <CarConteiner>
           <CarTitle>
-            {make} {model.length < 8 ? <CarModel>{model}</CarModel> : ''},
-            {year}
+            {make} {model.length < 8 ? <CarModel>{model}</CarModel> : ''},{year}
           </CarTitle>
           <div>
             <CarPrice>{rentalPrice}</CarPrice>
@@ -96,30 +94,25 @@ function CardItem({ car }) {
           <ItemInfo>{addres[1]} </ItemInfo>
           <ItemInfo>
             <SvgVector>
-              
               <use href={sprite + '#icon-Vector'}></use>
             </SvgVector>
           </ItemInfo>
           <ItemInfo>{addres[2]} </ItemInfo>
           <ItemInfo>
             <SvgVector>
-              
               <use href={sprite + '#icon-Vector'}></use>
             </SvgVector>
           </ItemInfo>
           <ItemInfo>{rentalCompany} </ItemInfo>
           <SvgVector>
-            
             <use href={sprite + '#icon-Vector'}></use>
           </SvgVector>
           <ItemInfo> {type === model ? 'Premium' : type} </ItemInfo>
           <SvgVector>
-            
             <use href={sprite + '#icon-Vector'}></use>
           </SvgVector>
           <ItemInfo> {make} </ItemInfo>
           <SvgVector>
-            
             <use href={sprite + '#icon-Vector'}></use>
           </SvgVector>
           <ItemInfo> {id} </ItemInfo>
