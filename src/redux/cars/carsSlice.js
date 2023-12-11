@@ -8,6 +8,7 @@ const initialState = {
   carsFilterFavorite: null,
   carsAll: [],
   favorites: [],
+  limit:11,
 };
 
 export const carsSlice = createSlice({
@@ -70,6 +71,12 @@ export const carsSlice = createSlice({
         carsFilterFavorite: null,
       };
     },
+      setLimit(state) {
+      return {
+        ...state,
+        limit: state.limit + 12,
+      };
+    },
   },
 });
 export const {
@@ -79,6 +86,7 @@ export const {
   filterReset,
   carsFilterFavorite,
   filterResetFavorites,
+  setLimit,
 } = carsSlice.actions;
 
 export const carsReducer = carsSlice.reducer;

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ThreeDots } from 'react-loader-spinner';
 
@@ -12,7 +12,6 @@ import {
 } from '../../redux/cars/selectors';
 import CardFilter from '../../components/CardFilter/CardFilter';
 const CatalogPage = () => {
-  const [limit, setLimit] = useState(11);
   const status = useSelector(selectStatus);
   const carArr = useSelector(selectCarsAll);
   const car = useSelector(selectCar);
@@ -47,9 +46,9 @@ const CatalogPage = () => {
   if (status === 'succeeded') {
     return (
       <section>
-              <Container>
+          <Container>
         <CardFilter filterArr={carArr} />
-        <CardList limit={limit} setLimit={setLimit} />
+        <CardList/>
       </Container>
       </section>
     );
