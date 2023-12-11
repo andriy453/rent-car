@@ -1,43 +1,25 @@
-import { Section, Services, Service, ContacBbutton } from './Home.stuled';
-
+import { ConteinerContent,HomeConteiner,ConteinerImg ,Text,ConteinerBtn,StyledLink,ContacBbutton,ImgPhone,ImgCar} from './Home.stuled';
+import CarImg from '../../icons/carImg.webp'
+import backgroundImg from '../../icons/phoneImg.webp'
 function Home() {
   return (
-    <Section>
-      <h2>Welcome to Rent-A-Car</h2>
-      <p>
-        Explore the world with our reliable and comfortable rental cars. We
-        provide a range of vehicles to suit your travel needs, whether it's a
-        weekend getaway or a business trip.
-      </p>
-
-      <Services>
-        <Service>
-          <h2>Fleet Variety</h2>
-          <p>
-            Choose from our diverse fleet, including sedans, SUVs, and luxury
-            cars. We have the right car for every occasion.
-          </p>
-        </Service>
-        <Service>
-          <h2>Flexible Rentals</h2>
-          <p>
-            Enjoy flexible rental plans tailored to your schedule. Rent by the
-            day, week, or month – we've got you covered.
-          </p>
-        </Service>
-        <Service>
-          <h2>Easy Booking</h2>
-          <p>
-            Our user-friendly online booking system makes renting a car a
-            breeze. Book your car in just a few clicks.
-          </p>
-        </Service>
-      </Services>
-
-      <ContacBbutton href="#contact" className="contact-button">
-        Contact Us
-      </ContacBbutton>
-    </Section>
+      <section>
+                <HomeConteiner>
+          <ConteinerContent>
+              <Text>Plan your trip now</Text>
+              <h1>Save <span>big </span>with our car rental</h1>
+              <p>Rent the car of your dreams. Unbeatable prices, unlimited miles, flexible pick-up options and much more.</p>
+              <ConteinerBtn>
+                  <ContacBbutton href="tel:+380730000000" >Contact Us</ContacBbutton>
+              <StyledLink to="/catalog"> Go to catalog</StyledLink>
+              </ConteinerBtn>
+          </ConteinerContent>
+          <ConteinerImg>
+              <ImgPhone src={backgroundImg} alt="backgroundImg" />
+              <ImgCar src={CarImg} alt="CarImg" width={700} height={500} />
+          </ConteinerImg>
+      </HomeConteiner> 
+        </section>
   );
 }
 

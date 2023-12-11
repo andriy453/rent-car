@@ -3,9 +3,11 @@ import FavoritesList from '../../components/FavoritesList/FavoritesList';
 
 const FavoritesPage = () => {
   return (
+    <section>
     <Container>
       <FavoritesList />
     </Container>
+</section>
   );
 };
 

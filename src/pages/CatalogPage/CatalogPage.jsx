@@ -26,7 +26,8 @@ const CatalogPage = () => {
 
   if (status === 'loading') {
     return (
-      <Container>
+      <section>
+              <Container>
         <CardFilter filterArr={carArr} />
         <CardList />
         <ThreeDots
@@ -39,15 +40,18 @@ const CatalogPage = () => {
           visible={true}
         />
       </Container>
+  </section>
     );
   }
 
   if (status === 'succeeded') {
     return (
-      <Container>
+      <section>
+              <Container>
         <CardFilter filterArr={carArr} />
         <CardList limit={limit} setLimit={setLimit} />
       </Container>
+      </section>
     );
   }
 };

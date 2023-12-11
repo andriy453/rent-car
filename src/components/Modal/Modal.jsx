@@ -74,87 +74,78 @@ function Modal({ onClose, arr }) {
           {make} {<CarModel>{model}</CarModel>}, {year}
         </CarTitle>
         <ModalListInfo>
-          <ItemInfo>{addres[1]} </ItemInfo>{' '}
+          <ItemInfo>{addres[1]} </ItemInfo>
           <ItemInfo>
             <SvgVector>
-              {' '}
+
               <use href={sprite + '#icon-Vector'}></use>
-            </SvgVector>{' '}
-          </ItemInfo>{' '}
-          <ItemInfo>{addres[2]} </ItemInfo>{' '}
+            </SvgVector>
+          </ItemInfo>
+          <ItemInfo>{addres[2]} </ItemInfo>
           <ItemInfo>
             <SvgVector>
-              {' '}
+
               <use href={sprite + '#icon-Vector'}></use>
-            </SvgVector>{' '}
-          </ItemInfo>{' '}
-          <ItemInfo>id:{id} </ItemInfo>{' '}
+            </SvgVector>
+          </ItemInfo>
+          <ItemInfo>id:{id} </ItemInfo>
           <SvgVector>
-            {' '}
             <use href={sprite + '#icon-Vector'}></use>
           </SvgVector>
-          <ItemInfo>Year:{year} </ItemInfo>{' '}
+          <ItemInfo>Year:{year} </ItemInfo>
           <SvgVector>
-            {' '}
             <use href={sprite + '#icon-Vector'}></use>
-          </SvgVector>{' '}
+          </SvgVector>
           <ItemInfo>Type: {type} </ItemInfo>
           <SvgVector>
-            {' '}
             <use href={sprite + '#icon-Vector'}></use>
           </SvgVector>
-          <ItemInfo>Fuel Consumption: {fuelConsumption} </ItemInfo>{' '}
+          <ItemInfo>Fuel Consumption: {fuelConsumption} </ItemInfo>
           <SvgVector>
-            {' '}
             <use href={sprite + '#icon-Vector'}></use>
-          </SvgVector>{' '}
-          <ItemInfo> Engine Size:{engineSize}</ItemInfo>{' '}
+          </SvgVector>
+          <ItemInfo> Engine Size:{engineSize}</ItemInfo>
         </ModalListInfo>
         <ModalDescription>{description}</ModalDescription>
         <ModalAccessories>Accessories and functionalities:</ModalAccessories>
         <ModalListAccessories>
-          <ItemInfo>{accessories[0].slice(0, 13)} </ItemInfo>{' '}
+          <ItemInfo>{accessories[0].slice(0, 13)} </ItemInfo>
           <ItemInfo>
             <SvgVector>
-              {' '}
+
               <use href={sprite + '#icon-Vector'}></use>
-            </SvgVector>{' '}
-          </ItemInfo>{' '}
-          <ItemInfo>{accessories[1].slice(0, 13)} </ItemInfo>{' '}
+            </SvgVector>
+          </ItemInfo>
+          <ItemInfo>{accessories[1].slice(0, 13)} </ItemInfo>
           <ItemInfo>
             <SvgVector>
-              {' '}
+
               <use href={sprite + '#icon-Vector'}></use>
-            </SvgVector>{' '}
-          </ItemInfo>{' '}
-          <ItemInfo>{accessories[2].slice(0, 13)} </ItemInfo>{' '}
+            </SvgVector>
+          </ItemInfo>
+          <ItemInfo>{accessories[2].slice(0, 13)} </ItemInfo>
           <SvgVector>
-            {' '}
             <use href={sprite + '#icon-Vector'}></use>
           </SvgVector>
-          <ItemInfo>{functionalities[0].slice(0, 13)} </ItemInfo>{' '}
+          <ItemInfo>{functionalities[0].slice(0, 13)} </ItemInfo>
           <SvgVector>
-            {' '}
             <use href={sprite + '#icon-Vector'}></use>
-          </SvgVector>{' '}
+          </SvgVector>
           <ItemInfo>{functionalities[1].slice(0, 13)} </ItemInfo>
           <SvgVector>
-            {' '}
             <use href={sprite + '#icon-Vector'}></use>
           </SvgVector>
-          <ItemInfo>{functionalities[2].slice(0, 13)} </ItemInfo>{' '}
+          <ItemInfo>{functionalities[2].slice(0, 13)} </ItemInfo>
         </ModalListAccessories>
         <ModalAccessories>Rental Conditions: </ModalAccessories>
         <ModalRentalList>
           <RentalItem>
-            {' '}
             Minimum age :<span>{rentalConditions.slice(13, 16)}</span>
-          </RentalItem>{' '}
-          <RentalItem> Valid driver’s license</RentalItem>{' '}
+          </RentalItem>
+          <RentalItem> Valid driver’s license</RentalItem>
           <RentalItem>
-            {' '}
             {rentalConditions.slice(38, rentalConditions.length)}
-          </RentalItem>{' '}
+          </RentalItem>
           <RentalItem>
             Mileage:
             <span>
@@ -162,9 +153,8 @@ function Modal({ onClose, arr }) {
             </span>
           </RentalItem>
           <RentalItem>
-            {' '}
             Price:<span>{rentalPrice.slice(1)}$</span>
-          </RentalItem>{' '}
+          </RentalItem>
         </ModalRentalList>
         <CloseBtn onClick={() => onClose(false)}>
           <SvgBtnClose>
