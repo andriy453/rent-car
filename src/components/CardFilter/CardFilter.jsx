@@ -53,42 +53,26 @@ function CardFilter({ filterArr }) {
   for (let i = 10; i <= 200; i += 10) {
     priceArr.push(i);
   }
+const filteredCars = filterArr.filter((car) => {
+    const brandMatch = model ? car.make.toLowerCase() === model.toLowerCase() : true;
+    const hourlyPriceMatch = price ?  +car.rentalPrice.slice(1) <= price : true;
+    const mileageMatchMin = minMileage ? car.mileage > minMileage : true;
+    const mileageMatchMax = maxMileage ? car.mileage < maxMileage : true;
 
+    return brandMatch && hourlyPriceMatch && mileageMatchMin && mileageMatchMax;
+  });
   const hendleSearch = () => {
-    if (carAll === filterArr) {
-      if (model)
-        dispatch(filterCars(filterArr.filter((el) => el.make === model)));
-      else if (price)
-        dispatch(
-          filterCars(
-            filterArr.filter((el) => +el.rentalPrice.slice(1) <= price)
-          )
-        );
-      else if (minMileage)
-        dispatch(filterCars(filterArr.filter((el) => el.mileage > minMileage)));
-      else if (maxMileage)
-        dispatch(filterCars(filterArr.filter((el) => el.mileage < maxMileage)));
-    } else {
-      if (model)
-        dispatch(
-          carsFilterFavorite(filterArr.filter((el) => el.make === model))
-        );
-      else if (price)
-        dispatch(
-          carsFilterFavorite(
-            filterArr.filter((el) => +el.rentalPrice.slice(1) <= price)
-          )
-        );
-      else if (minMileage)
-        dispatch(
-          carsFilterFavorite(filterArr.filter((el) => el.mileage > minMileage))
-        );
-      else if (maxMileage)
-        dispatch(
-          carsFilterFavorite(filterArr.filter((el) => el.mileage < maxMileage))
-        );
+    if (model + price + minMileage + maxMileage) {
+         if (carAll === filterArr) {
+       dispatch(filterCars(filteredCars));
     }
+    else {
+       dispatch(carsFilterFavorite(filteredCars));
+    }
+
+ }
   };
+
   useEffect(() => {
     if (carAll.length === 0) dispatch(fetchCarAll());
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -104,6 +88,9 @@ function CardFilter({ filterArr }) {
     setMinMileage('');
     setMaxMileage('');
   };
+
+
+
   return (
     <>
       <ListFilter>
@@ -127,7 +114,6 @@ function CardFilter({ filterArr }) {
           />
         </li>
         <li>
-          {' '}
           <SelectDiv>
             <span>Сar mileage / km</span>
             <div>

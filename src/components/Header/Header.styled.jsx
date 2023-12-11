@@ -31,7 +31,7 @@ export const ConteinerNavigate = styled.div`
     display:flex;
     justify-content:center;
     position: relative;
-    z-index: 5;
+    z-index: 1;
       @media (min-width: 768px) {
         justify-content:space-between;
   }
