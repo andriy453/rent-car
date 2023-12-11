@@ -17,7 +17,10 @@ To run the project locally, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/andriy453/rent-a-car.git`
 2. Navigate to the project directory: `cd rent-a-car`
-3. Open the desired HTML file (e.g., `index.html`) in your web browser.
+3. Make sure you have the LTS version of Node.js installed on your machine. Download and install it if necessary
+4. Install the project's main dependencies using the `npm install`command
+5. Started development mode by running `npm start` command
+6. Go to http://localhost:3000 in your browser. This page will automatically reload after saving changes to the project files
 
 ## Technologies Used
 
