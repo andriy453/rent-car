@@ -30,7 +30,7 @@ function Home() {
           </ConteinerBtn>
         </ConteinerContent>
         <ConteinerImg>
-          <ImgPhone src={backgroundImg} alt="backgroundImg" />
+          <ImgPhone src={backgroundImg} alt="backgroundImg" loading='lazy' />
           <ImgCar src={CarImg} alt="CarImg" width={700} height={500} />
         </ConteinerImg>
       </HomeConteiner>
