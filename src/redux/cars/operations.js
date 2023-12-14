@@ -12,7 +12,7 @@ export const fetchCar = createAsyncThunk('/', async (limit,{ rejectWithValue }) 
       return rejectWithValue(error.message);
     }
 });
-export const fetchCarAll = createAsyncThunk('/all', async ({ rejectWithValue }) => {
+export const fetchCarAll = createAsyncThunk('/all', async (rejectWithValue ) => {
   try {
     const res = await axios.get(`/`);
     return res.data;
